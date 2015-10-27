@@ -1,0 +1,163 @@
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMessages (20151023151851)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151023151851"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2015-10-24 00:42:59 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages"  ORDER BY "messages"."created_at" DESC
+  Rendered messages/index.html.erb within layouts/application (40.0ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `from_for' for #<#<Class:0x007fdff30027a8>:0x007fdff30017e0>):
+    1: <h1>掲示板</h1>
+    2: 
+    3: <%= from_for(@message) do |f| %>
+    4: 	<% if @message.errors.any? %>
+    5: 		<% @message.errors.full_messages.each do |err| %>
+    6: 			<font color="red"><%= err %></font><br>
+  app/views/messages/index.html.erb:3:in `_app_views_messages_index_html_erb__3802617202704695921_70299915849080'
+
+
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (41.8ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (64.0ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (11.4ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (25.8ms)
+
+
+Started GET "/" for ::1 at 2015-10-24 00:42:59 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages"  ORDER BY "messages"."created_at" DESC[0m
+  Rendered messages/index.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `from_for' for #<#<Class:0x007fdff30027a8>:0x007fdfeedc8fb8>):
+    1: <h1>掲示板</h1>
+    2: 
+    3: <%= from_for(@message) do |f| %>
+    4: 	<% if @message.errors.any? %>
+    5: 		<% @message.errors.full_messages.each do |err| %>
+    6: 			<font color="red"><%= err %></font><br>
+  app/views/messages/index.html.erb:3:in `_app_views_messages_index_html_erb__3802617202704695921_70299915849080'
+
+
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.8ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.4ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (11.3ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/taka/.rbenv/versions/2.0.0-p647/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (23.7ms)
+
+
+Started GET "/" for ::1 at 2015-10-24 00:45:57 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages"  ORDER BY "messages"."created_at" DESC
+  Rendered messages/index.html.erb within layouts/application (51.5ms)
+Completed 200 OK in 682ms (Views: 680.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/messages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-24 00:45:58 +0900
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-10-24 00:45:58 +0900
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-24 00:45:58 +0900
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-24 00:45:58 +0900
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-24 00:45:58 +0900
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-10-24 00:45:58 +0900
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-10-24 00:45:58 +0900
+
+
+Started POST "/messages" for ::1 at 2015-10-24 00:46:39 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X8esEHSasXs0Njc/i+at2AwIAdBo2dK56HZm0nvh26VM6gxh4o6nBr7ow/a90kZLUmOwW6+F9GW0hg4jZVeDPQ==", "message"=>{"title"=>"testes", "body"=>"test"}, "commit"=>"Create Message"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "messages" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "testes"], ["body", "test"], ["created_at", "2015-10-23 15:46:39.870611"], ["updated_at", "2015-10-23 15:46:39.870611"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2015-10-24 00:46:39 +0900
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages"  ORDER BY "messages"."created_at" DESC
+  Rendered messages/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 25ms (Views: 24.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/messages" for ::1 at 2015-10-24 00:47:06 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"63xgIZlV+NzKrLkh1Enz39th3GY6V4nMzP3I6p6lg834UcBQD0HuoUByTejifRhMhQpt7f0LrxCQDaAbgBPbVQ==", "message"=>{"title"=>"test@test.com", "body"=>"仮投稿\r\n"}, "commit"=>"Create Message"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages"  ORDER BY "messages"."created_at" DESC[0m
+  Rendered messages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 78ms (Views: 75.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/messages" for ::1 at 2015-10-24 00:47:35 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PYjZHyBHzXGeuQv5JBni9eqU1gLCAXODLhEcKmRCz4YupXlutlPbDBRn/zASLQlmtP9niQVdVV9y4XTbevSXHg==", "message"=>{"title"=>"@tes.com", "body"=>"仮投稿\r\n"}, "commit"=>"Create Message"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "messages" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "@tes.com"], ["body", "仮投稿\r\n"], ["created_at", "2015-10-23 15:47:35.844756"], ["updated_at", "2015-10-23 15:47:35.844756"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2015-10-24 00:47:35 +0900
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages"  ORDER BY "messages"."created_at" DESC[0m
+  Rendered messages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/messages" for ::1 at 2015-10-24 00:47:55 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/wcgaKozbndDLSnhiVI61JzFW+6VRklJc5k4zRJOzSzsKoAZPCd4Csnz3Si/ZtFHwq7qZVIab5UvaVA8DPiVtA==", "message"=>{"title"=>"12345678912", "body"=>"テスト投稿"}, "commit"=>"Create Message"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35mMessage Load (0.1ms)[0m  SELECT "messages".* FROM "messages"  ORDER BY "messages"."created_at" DESC
+  Rendered messages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/messages" for ::1 at 2015-10-24 00:48:28 +0900
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pU57F/x5Meyc0MotSjnXquuLMduzlpn4aFqDnmSU5ci2Y9tmam0nkRYOPuR8DTw5teCAUHTKvyQ0qutveiK9UA==", "message"=>{"title"=>"12345678912", "body"=>"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "commit"=>"Create Message"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mMessage Load (0.1ms)[0m  [1mSELECT "messages".* FROM "messages"  ORDER BY "messages"."created_at" DESC[0m
+  Rendered messages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.2ms)
